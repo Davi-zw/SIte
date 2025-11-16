@@ -1,0 +1,155 @@
+:root {
+    --primary: #2196f3;
+    --bg: #ffffff;
+    --text: #222;
+    --header-height: 70px;
+    --shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+
+.dark {
+    --bg: #1e1e1e;
+    --text: #e5e5e5;
+    --primary: #4dabff;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s;
+}
+
+
+header {
+    height: var(--header-height);
+    background: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+}
+
+.logo {
+    font-size: 25px;
+}
+
+.btn-menu, .theme-toggle {
+    font-size: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.theme-toggle {
+    margin-right: 10px;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+    .btn-menu {
+        display: block;
+    }
+
+    .menu {
+        flex-direction: column;
+        position: absolute;
+        top: var(--header-height);
+        right: 0;
+        background: var(--primary);
+        width: 200px;
+        display: none;
+        padding: 15px;
+        box-shadow: var(--shadow);
+    }
+
+    .menu a {
+        padding: 10px;
+    }
+}
+
+
+.carrossel {
+    max-width: 900px;
+    margin: 40px auto;
+    position: relative;
+}
+
+.slide {
+    display: none;
+    animation: fade 0.8s;
+}
+
+.slide.active {
+    display: block;
+}
+
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 25px;
+    border-radius: 5px;
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+
+.indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.indicators div {
+    width: 14px;
+    height: 14px;
+    background: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.indicators .active-indicator {
+    background: var(--primary);
+    transform: scale(1.3);
+}
